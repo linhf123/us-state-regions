@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>美国州 · 中英文对照与地区归属</title>
+<style>
+  * { box-sizing: border-box; }
+  :root {
+    --ink: #1a1d21; --ink-2: #5b636e; --ink-3: #8b939e;
+    --line: #e6e9ed; --bg: #f7f8fa; --panel: #ffffff;
+    --west: #2563eb;    --west-bg: #eff5ff;
+    --central: #b45309; --central-bg: #fff8ec;
+    --south: #be123c;   --south-bg: #fff1f3;
+    --east: #15803d;    --east-bg: #f0fbf3;
+  }
+  body {
+    margin: 0; padding: 40px 28px 64px;
+    background: var(--bg); color: var(--ink);
+    font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 900px; margin: 0 auto; }
+  h1 { font-size: 25px; font-weight: 650; letter-spacing: -.3px; margin: 0 0 8px; }
+  .sub { color: var(--ink-2); font-size: 14px; line-height: 1.6; margin: 0; }
+  .sub b { color: var(--ink); font-weight: 600; }
+
+  .cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin: 24px 0 26px; }
+  .card { background: var(--panel); border: 1px solid var(--line); border-radius: 12px;
+           padding: 15px 16px; border-top: 3px solid var(--line); }
+  .card.west { border-top-color: var(--west); }
+  .card.central { border-top-color: var(--central); }
+  .card.south { border-top-color: var(--south); }
+  .card.east { border-top-color: var(--east); }
+  .card-top { display: flex; align-items: baseline; gap: 7px; }
+  .card-name { font-size: 15px; font-weight: 650; }
+  .card-en { font-size: 10.5px; color: var(--ink-3); letter-spacing: .06em; text-transform: uppercase; }
+  .card-num { font-size: 25px; font-weight: 650; margin: 5px 0 3px; letter-spacing: -.5px; }
+  .card-num span { font-size: 11.5px; font-weight: 500; color: var(--ink-3); margin-left: 4px; }
+  .card-sub { font-size: 11.5px; color: var(--ink-3); line-height: 1.55; }
+
+  .toolbar { display: flex; gap: 10px; align-items: center; margin-bottom: 14px; flex-wrap: wrap; }
+  .search { flex: 1; min-width: 220px; position: relative; }
+  .search input {
+    width: 100%; padding: 9px 13px 9px 34px; font-size: 13.5px;
+    border: 1px solid var(--line); border-radius: 8px; background: var(--panel);
+    color: var(--ink); outline: none; font-family: inherit;
+  }
+  .search input:focus { border-color: #c3cbd6; box-shadow: 0 0 0 3px rgba(37,99,235,.07); }
+  .search svg { position: absolute; left: 11px; top: 50%; transform: translateY(-50%); opacity: .38; }
+  .filters { display: flex; gap: 6px; }
+  .filters button {
+    padding: 8px 13px; font-size: 13px; border-radius: 8px; cursor: pointer;
+    border: 1px solid var(--line); background: var(--panel); color: var(--ink-2);
+    font-family: inherit; transition: all .12s;
+  }
+  .filters button:hover { border-color: #c3cbd6; }
+  .filters button.on { background: var(--ink); color: #fff; border-color: var(--ink); }
+
+  table { width: 100%; border-collapse: collapse; background: var(--panel);
+           border: 1px solid var(--line); border-radius: 12px; overflow: hidden; }
+  thead th {
+    text-align: left; font-size: 11.5px; font-weight: 600; color: var(--ink-3);
+    letter-spacing: .05em; padding: 12px 18px; background: #fafbfc;
+    border-bottom: 1px solid var(--line); white-space: nowrap;
+  }
+  tbody td { padding: 11px 18px; font-size: 14px; border-bottom: 1px solid #f1f3f5; }
+  tbody tr:last-child td { border-bottom: none; }
+  tbody tr:hover { background: #fafbfc; }
+  .code { font-family: ui-monospace, "SF Mono", Menlo, monospace; font-size: 13.5px;
+           font-weight: 600; color: var(--ink); letter-spacing: .02em; }
+  .cn { color: var(--ink); }
+  .en { color: var(--ink-2); }
+
+  .badge { display: inline-block; padding: 2px 9px; border-radius: 5px; font-size: 11.5px; font-weight: 600; }
+  .badge.west { color: var(--west); background: var(--west-bg); }
+  .badge.central { color: var(--central); background: var(--central-bg); }
+  .badge.south { color: var(--south); background: var(--south-bg); }
+  .badge.east { color: var(--east); background: var(--east-bg); }
+
+  .legend { margin-top: 22px; padding: 16px 18px; background: var(--panel);
+             border: 1px solid var(--line); border-radius: 12px; }
+  .legend h2 { font-size: 13px; font-weight: 650; margin: 0 0 10px; }
+  .legend ul { margin: 0; padding-left: 18px; color: var(--ink-2); font-size: 12.5px; line-height: 1.85; }
+  .legend b { color: var(--ink); font-weight: 600; }
+  .empty-state { text-align: center; padding: 40px; color: var(--ink-3); font-size: 13.5px; display: none; }
+
+  @media (max-width: 780px) {
+    .cards { grid-template-columns: repeat(2, 1fr); }
+    body { padding: 24px 16px 48px; }
+  }
+  @media print {
+    body { background: #fff; padding: 0; }
+    .toolbar { display: none; }
+    .card, table, .legend { break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>美国州 · 中英文对照与地区归属</h1>
+    <p class="sub">共 <b>51</b> 个州及特区 · 分 <b>4</b> 个物流区：美西 / 美中 / 美南 / 美东</p>
+  </header>
+
+  <div class="cards">
+    <div class="card west">
+      <div class="card-top"><span class="card-name">美西</span><span class="card-en">West</span></div>
+      <div class="card-num">13<span>个州</span></div>
+      <div class="card-sub">太平洋沿岸 + 山地西侧，含 AK / HI</div>
+    </div>
+    <div class="card central">
+      <div class="card-top"><span class="card-name">美中</span><span class="card-en">Central</span></div>
+      <div class="card-num">13<span>个州</span></div>
+      <div class="card-sub">五大湖 + 中西部平原，含 KY</div>
+    </div>
+    <div class="card south">
+      <div class="card-top"><span class="card-name">美南</span><span class="card-en">South</span></div>
+      <div class="card-num">7<span>个州</span></div>
+      <div class="card-sub">墨西哥湾沿岸 + 德州 + 田纳西</div>
+    </div>
+    <div class="card east">
+      <div class="card-top"><span class="card-name">美东</span><span class="card-en">East</span></div>
+      <div class="card-num">18<span>个州</span></div>
+      <div class="card-sub">东北 + 东南沿海，含 DC</div>
+    </div>
+  </div>
+
+  <div class="toolbar">
+    <div class="search">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4">
+        <circle cx="11" cy="11" r="7"/><path d="M20 20l-4.2-4.2"/>
+      </svg>
+      <input id="q" type="text" placeholder="搜索州代码 / 中文 / 英文…">
+    </div>
+    <div class="filters">
+      <button class="on" data-r="全部">全部</button>
+      <button data-r="美西">美西</button>
+      <button data-r="美中">美中</button>
+      <button data-r="美南">美南</button>
+      <button data-r="美东">美东</button>
+    </div>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th style="width:96px">地区</th>
+        <th style="width:88px">代码</th>
+        <th style="width:180px">中文</th>
+        <th>英文</th>
+      </tr>
+    </thead>
+    <tbody id="tb">
+      <tr data-region="美西" data-text="AK 阿拉斯加 Alaska 美西">
+        <td><span class="badge west">美西</span></td>
+        <td class="code">AK</td>
+        <td class="cn">阿拉斯加</td>
+        <td class="en">Alaska</td>
+      </tr>
+      <tr data-region="美西" data-text="AZ 亚利桑那 Arizona 美西">
+        <td><span class="badge west">美西</span></td>
+        <td class="code">AZ</td>
+        <td class="cn">亚利桑那</td>
+        <td class="en">Arizona</td>
+      </tr>
+      <tr data-region="美西" data-text="CA 加利福尼亚 California 美西">
+        <td><span class="badge west">美西</span></td>
+        <td class="code">CA</td>
+        <td class="cn">加利福尼亚</td>
+        <td class="en">California</td>
+      </tr>
+      <tr data-region="美西" data-text="CO 科罗拉多 Colorado 美西">
+        <td><span class="badge west">美西</span></td>
+        <td class="code">CO</td>
+        <td class="cn">科罗拉多</td>
+        <td class="en">Colorado</td>
+      </tr>
+      <tr data-region="美西" data-text="HI 夏威夷 Hawaii 美西">
+        <td><span class="badge west">美西</span></td>
+        <td class="code">HI</td>
+        <td class="cn">夏威夷</td>
+        <td class="en">Hawaii</td>
+      </tr>
+      <tr data-region="美西" data-text="ID 爱达荷 Idaho 美西">
+        <td><span class="badge west">美西</span></td>
+        <td class="code">ID</td>
+        <td class="cn">爱达荷</td>
+        <td class="en">Idaho</td>
+      </tr>
+      <tr data-region="美西" data-text="MT 蒙大拿 Montana 美西">
+        <td><span class="badge west">美西</span></td>
+        <td class="code">MT</td>
+        <td class="cn">蒙大拿</td>
+        <td class="en">Montana</td>
+      </tr>
+      <tr data-region="美西" data-text="NM 新墨西哥 New Mexico 美西">
+        <td><span class="badge west">美西</span></td>
+        <td class="code">NM</td>
+        <td class="cn">新墨西哥</td>
+        <td class="en">New Mexico</td>
+      </tr>
+      <tr data-region="美西" data-text="NV 内华达 Nevada 美西">
+        <td><span class="badge west">美西</span></td>
+        <td class="code">NV</td>
+        <td class="cn">内华达</td>
+        <td class="en">Nevada</td>
+      </tr>
+      <tr data-region="美西" data-text="OR 俄勒冈 Oregon 美西">
+        <td><span class="badge west">美西</span></td>
+        <td class="code">OR</td>
+        <td class="cn">俄勒冈</td>
+        <td class="en">Oregon</td>
+      </tr>
+      <tr data-region="美西" data-text="UT 犹他 Utah 美西">
+        <td><span class="badge west">美西</span></td>
+        <td class="code">UT</td>
+        <td class="cn">犹他</td>
+        <td class="en">Utah</td>
+      </tr>
+      <tr data-region="美西" data-text="WA 华盛顿 Washington 美西">
+        <td><span class="badge west">美西</span></td>
+        <td class="code">WA</td>
+        <td class="cn">华盛顿</td>
+        <td class="en">Washington</td>
+      </tr>
+      <tr data-region="美西" data-text="WY 怀俄明 Wyoming 美西">
+        <td><span class="badge west">美西</span></td>
+        <td class="code">WY</td>
+        <td class="cn">怀俄明</td>
+        <td class="en">Wyoming</td>
+      </tr>
+      <tr data-region="美中" data-text="IA 艾奥瓦 Iowa 美中">
+        <td><span class="badge central">美中</span></td>
+        <td class="code">IA</td>
+        <td class="cn">艾奥瓦</td>
+        <td class="en">Iowa</td>
+      </tr>
+      <tr data-region="美中" data-text="IL 伊利诺伊 Illinois 美中">
+        <td><span class="badge central">美中</span></td>
+        <td class="code">IL</td>
+        <td class="cn">伊利诺伊</td>
+        <td class="en">Illinois</td>
+      </tr>
+      <tr data-region="美中" data-text="IN 印第安纳 Indiana 美中">
+        <td><span class="badge central">美中</span></td>
+        <td class="code">IN</td>
+        <td class="cn">印第安纳</td>
+        <td class="en">Indiana</td>
+      </tr>
+      <tr data-region="美中" data-text="KS 堪萨斯 Kansas 美中">
+        <td><span class="badge central">美中</span></td>
+        <td class="code">KS</td>
+        <td class="cn">堪萨斯</td>
+        <td class="en">Kansas</td>
+      </tr>
+      <tr data-region="美中" data-text="KY 肯塔基 Kentucky 美中">
+        <td><span class="badge central">美中</span></td>
+        <td class="code">KY</td>
+        <td class="cn">肯塔基</td>
+        <td class="en">Kentucky</td>
+      </tr>
+      <tr data-region="美中" data-text="MI 密歇根 Michigan 美中">
+        <td><span class="badge central">美中</span></td>
+        <td class="code">MI</td>
+        <td class="cn">密歇根</td>
+        <td class="en">Michigan</td>
+      </tr>
+      <tr data-region="美中" data-text="MN 明尼苏达 Minnesota 美中">
+        <td><span class="badge central">美中</span></td>
+        <td class="code">MN</td>
+        <td class="cn">明尼苏达</td>
+        <td class="en">Minnesota</td>
+      </tr>
+      <tr data-region="美中" data-text="MO 密苏里 Missouri 美中">
+        <td><span class="badge central">美中</span></td>
+        <td class="code">MO</td>
+        <td class="cn">密苏里</td>
+        <td class="en">Missouri</td>
+      </tr>
+      <tr data-region="美中" data-text="ND 北达科他 North Dakota 美中">
+        <td><span class="badge central">美中</span></td>
+        <td class="code">ND</td>
+        <td class="cn">北达科他</td>
+        <td class="en">North Dakota</td>
+      </tr>
+      <tr data-region="美中" data-text="NE 内布拉斯加 Nebraska 美中">
+        <td><span class="badge central">美中</span></td>
+        <td class="code">NE</td>
+        <td class="cn">内布拉斯加</td>
+        <td class="en">Nebraska</td>
+      </tr>
+      <tr data-region="美中" data-text="OH 俄亥俄 Ohio 美中">
+        <td><span class="badge central">美中</span></td>
+        <td class="code">OH</td>
+        <td class="cn">俄亥俄</td>
+        <td class="en">Ohio</td>
+      </tr>
+      <tr data-region="美中" data-text="SD 南达科他 South Dakota 美中">
+        <td><span class="badge central">美中</span></td>
+        <td class="code">SD</td>
+        <td class="cn">南达科他</td>
+        <td class="en">South Dakota</td>
+      </tr>
+      <tr data-region="美中" data-text="WI 威斯康星 Wisconsin 美中">
+        <td><span class="badge central">美中</span></td>
+        <td class="code">WI</td>
+        <td class="cn">威斯康星</td>
+        <td class="en">Wisconsin</td>
+      </tr>
+      <tr data-region="美南" data-text="AL 阿拉巴马 Alabama 美南">
+        <td><span class="badge south">美南</span></td>
+        <td class="code">AL</td>
+        <td class="cn">阿拉巴马</td>
+        <td class="en">Alabama</td>
+      </tr>
+      <tr data-region="美南" data-text="AR 阿肯色 Arkansas 美南">
+        <td><span class="badge south">美南</span></td>
+        <td class="code">AR</td>
+        <td class="cn">阿肯色</td>
+        <td class="en">Arkansas</td>
+      </tr>
+      <tr data-region="美南" data-text="LA 路易斯安那 Louisiana 美南">
+        <td><span class="badge south">美南</span></td>
+        <td class="code">LA</td>
+        <td class="cn">路易斯安那</td>
+        <td class="en">Louisiana</td>
+      </tr>
+      <tr data-region="美南" data-text="MS 密西西比 Mississippi 美南">
+        <td><span class="badge south">美南</span></td>
+        <td class="code">MS</td>
+        <td class="cn">密西西比</td>
+        <td class="en">Mississippi</td>
+      </tr>
+      <tr data-region="美南" data-text="OK 俄克拉何马 Oklahoma 美南">
+        <td><span class="badge south">美南</span></td>
+        <td class="code">OK</td>
+        <td class="cn">俄克拉何马</td>
+        <td class="en">Oklahoma</td>
+      </tr>
+      <tr data-region="美南" data-text="TN 田纳西 Tennessee 美南">
+        <td><span class="badge south">美南</span></td>
+        <td class="code">TN</td>
+        <td class="cn">田纳西</td>
+        <td class="en">Tennessee</td>
+      </tr>
+      <tr data-region="美南" data-text="TX 得克萨斯 Texas 美南">
+        <td><span class="badge south">美南</span></td>
+        <td class="code">TX</td>
+        <td class="cn">得克萨斯</td>
+        <td class="en">Texas</td>
+      </tr>
+      <tr data-region="美东" data-text="CT 康涅狄格 Connecticut 美东">
+        <td><span class="badge east">美东</span></td>
+        <td class="code">CT</td>
+        <td class="cn">康涅狄格</td>
+        <td class="en">Connecticut</td>
+      </tr>
+      <tr data-region="美东" data-text="DC 哥伦比亚特区 District of Columbia 美东">
+        <td><span class="badge east">美东</span></td>
+        <td class="code">DC</td>
+        <td class="cn">哥伦比亚特区</td>
+        <td class="en">District of Columbia</td>
+      </tr>
+      <tr data-region="美东" data-text="DE 特拉华 Delaware 美东">
+        <td><span class="badge east">美东</span></td>
+        <td class="code">DE</td>
+        <td class="cn">特拉华</td>
+        <td class="en">Delaware</td>
+      </tr>
+      <tr data-region="美东" data-text="FL 佛罗里达 Florida 美东">
+        <td><span class="badge east">美东</span></td>
+        <td class="code">FL</td>
+        <td class="cn">佛罗里达</td>
+        <td class="en">Florida</td>
+      </tr>
+      <tr data-region="美东" data-text="GA 佐治亚 Georgia 美东">
+        <td><span class="badge east">美东</span></td>
+        <td class="code">GA</td>
+        <td class="cn">佐治亚</td>
+        <td class="en">Georgia</td>
+      </tr>
+      <tr data-region="美东" data-text="MA 马萨诸塞 Massachusetts 美东">
+        <td><span class="badge east">美东</span></td>
+        <td class="code">MA</td>
+        <td class="cn">马萨诸塞</td>
+        <td class="en">Massachusetts</td>
+      </tr>
+      <tr data-region="美东" data-text="MD 马里兰 Maryland 美东">
+        <td><span class="badge east">美东</span></td>
+        <td class="code">MD</td>
+        <td class="cn">马里兰</td>
+        <td class="en">Maryland</td>
+      </tr>
+      <tr data-region="美东" data-text="ME 缅因 Maine 美东">
+        <td><span class="badge east">美东</span></td>
+        <td class="code">ME</td>
+        <td class="cn">缅因</td>
+        <td class="en">Maine</td>
+      </tr>
+      <tr data-region="美东" data-text="NC 北卡罗来纳 North Carolina 美东">
+        <td><span class="badge east">美东</span></td>
+        <td class="code">NC</td>
+        <td class="cn">北卡罗来纳</td>
+        <td class="en">North Carolina</td>
+      </tr>
+      <tr data-region="美东" data-text="NH 新罕布什尔 New Hampshire 美东">
+        <td><span class="badge east">美东</span></td>
+        <td class="code">NH</td>
+        <td class="cn">新罕布什尔</td>
+        <td class="en">New Hampshire</td>
+      </tr>
+      <tr data-region="美东" data-text="NJ 新泽西 New Jersey 美东">
+        <td><span class="badge east">美东</span></td>
+        <td class="code">NJ</td>
+        <td class="cn">新泽西</td>
+        <td class="en">New Jersey</td>
+      </tr>
+      <tr data-region="美东" data-text="NY 纽约 New York 美东">
+        <td><span class="badge east">美东</span></td>
+        <td class="code">NY</td>
+        <td class="cn">纽约</td>
+        <td class="en">New York</td>
+      </tr>
+      <tr data-region="美东" data-text="PA 宾夕法尼亚 Pennsylvania 美东">
+        <td><span class="badge east">美东</span></td>
+        <td class="code">PA</td>
+        <td class="cn">宾夕法尼亚</td>
+        <td class="en">Pennsylvania</td>
+      </tr>
+      <tr data-region="美东" data-text="RI 罗得岛 Rhode Island 美东">
+        <td><span class="badge east">美东</span></td>
+        <td class="code">RI</td>
+        <td class="cn">罗得岛</td>
+        <td class="en">Rhode Island</td>
+      </tr>
+      <tr data-region="美东" data-text="SC 南卡罗来纳 South Carolina 美东">
+        <td><span class="badge east">美东</span></td>
+        <td class="code">SC</td>
+        <td class="cn">南卡罗来纳</td>
+        <td class="en">South Carolina</td>
+      </tr>
+      <tr data-region="美东" data-text="VA 弗吉尼亚 Virginia 美东">
+        <td><span class="badge east">美东</span></td>
+        <td class="code">VA</td>
+        <td class="cn">弗吉尼亚</td>
+        <td class="en">Virginia</td>
+      </tr>
+      <tr data-region="美东" data-text="VT 佛蒙特 Vermont 美东">
+        <td><span class="badge east">美东</span></td>
+        <td class="code">VT</td>
+        <td class="cn">佛蒙特</td>
+        <td class="en">Vermont</td>
+      </tr>
+      <tr data-region="美东" data-text="WV 西弗吉尼亚 West Virginia 美东">
+        <td><span class="badge east">美东</span></td>
+        <td class="code">WV</td>
+        <td class="cn">西弗吉尼亚</td>
+        <td class="en">West Virginia</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="empty-state" id="empty">没有匹配的州</div>
+
+  <div class="legend">
+    <h2>分区说明</h2>
+    <ul>
+      <li><b>美西</b>：太平洋沿岸 + 山地西侧，含 AK / HI。</li>
+      <li><b>美中</b>：五大湖 + 中西部平原，含 KY。</li>
+      <li><b>美南</b>：墨西哥湾沿岸 + 德州 + 田纳西。</li>
+      <li><b>美东</b>：东北 + 东南沿海，含 DC。</li>
+      <li>TX / OK / AR / LA / MS / AL / TN 划入<b>美南</b>；KY 仍归美中，NH 仍归美东。</li>
+      <li>不设「美北」：北部各州与中西部高度重合，单列后与美中难以区分。</li>
+    </ul>
+  </div>
+</div>
+
+<script>
+  const rows = [...document.querySelectorAll('#tb tr')];
+  const empty = document.getElementById('empty');
+  const q = document.getElementById('q');
+  let region = '全部';
+
+  function apply() {
+    const kw = q.value.trim().toLowerCase();
+    let shown = 0;
+    rows.forEach(r => {
+      const okR = region === '全部' || r.dataset.region === region;
+      const okK = !kw || r.dataset.text.toLowerCase().includes(kw);
+      const vis = okR && okK;
+      r.style.display = vis ? '' : 'none';
+      if (vis) shown++;
+    });
+    empty.style.display = shown ? 'none' : 'block';
+  }
+
+  q.addEventListener('input', apply);
+  document.querySelectorAll('.filters button').forEach(b => {
+    b.addEventListener('click', () => {
+      document.querySelectorAll('.filters button').forEach(x => x.classList.remove('on'));
+      b.classList.add('on');
+      region = b.dataset.r;
+      apply();
+    });
+  });
+</script>
+</body>
+</html>
