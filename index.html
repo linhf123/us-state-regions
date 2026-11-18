@@ -126,6 +126,11 @@
            font-weight: 600; color: var(--ink); letter-spacing: .02em; }
   .cn { color: var(--ink); }
   .en { color: var(--ink-2); }
+  .cities { color: var(--ink-2); font-size: 12.5px; line-height: 1.45;
+            max-width: 420px; white-space: normal; }
+  @media (max-width: 760px) {
+    .cities { font-size: 11.5px; }
+  }
 
   .badge { display: inline-block; padding: 2px 9px; border-radius: 5px; font-size: 11.5px; font-weight: 600; }
   .badge.west { color: var(--west); background: var(--west-bg); }
@@ -325,318 +330,370 @@
   <table>
     <thead>
       <tr>
-        <th style="width:96px">地区</th>
-        <th style="width:88px">代码</th>
-        <th style="width:180px">中文</th>
-        <th>英文</th>
+        <th style="width:86px">地区</th>
+        <th style="width:78px">代码</th>
+        <th style="width:150px">中文</th>
+        <th style="width:160px">英文</th>
+        <th>主要城市</th>
       </tr>
     </thead>
     <tbody id="tb">
-      <tr data-region="美西" data-text="AK 阿拉斯加 Alaska 美西">
+      <tr data-region="美西" data-text="AK 阿拉斯加 Alaska 美西 安克雷奇、朱诺、费尔班克斯">
         <td><span class="badge west">美西</span></td>
         <td class="code">AK</td>
         <td class="cn">阿拉斯加</td>
         <td class="en">Alaska</td>
+        <td class="cities">安克雷奇、朱诺、费尔班克斯</td>
       </tr>
-      <tr data-region="美西" data-text="AZ 亚利桑那 Arizona 美西">
+      <tr data-region="美西" data-text="AZ 亚利桑那 Arizona 美西 菲尼克斯、图森、梅萨、斯科茨代尔">
         <td><span class="badge west">美西</span></td>
         <td class="code">AZ</td>
         <td class="cn">亚利桑那</td>
         <td class="en">Arizona</td>
+        <td class="cities">菲尼克斯、图森、梅萨、斯科茨代尔</td>
       </tr>
-      <tr data-region="美西" data-text="CA 加利福尼亚 California 美西">
+      <tr data-region="美西" data-text="CA 加利福尼亚 California 美西 洛杉矶、旧金山、圣迭戈、圣何塞、萨克拉门托">
         <td><span class="badge west">美西</span></td>
         <td class="code">CA</td>
         <td class="cn">加利福尼亚</td>
         <td class="en">California</td>
+        <td class="cities">洛杉矶、旧金山、圣迭戈、圣何塞、萨克拉门托</td>
       </tr>
-      <tr data-region="美西" data-text="CO 科罗拉多 Colorado 美西">
+      <tr data-region="美西" data-text="CO 科罗拉多 Colorado 美西 丹佛、科罗拉多斯普林斯、奥罗拉、博尔德">
         <td><span class="badge west">美西</span></td>
         <td class="code">CO</td>
         <td class="cn">科罗拉多</td>
         <td class="en">Colorado</td>
+        <td class="cities">丹佛、科罗拉多斯普林斯、奥罗拉、博尔德</td>
       </tr>
-      <tr data-region="美西" data-text="HI 夏威夷 Hawaii 美西">
+      <tr data-region="美西" data-text="HI 夏威夷 Hawaii 美西 檀香山、希洛、凯卢阿">
         <td><span class="badge west">美西</span></td>
         <td class="code">HI</td>
         <td class="cn">夏威夷</td>
         <td class="en">Hawaii</td>
+        <td class="cities">檀香山、希洛、凯卢阿</td>
       </tr>
-      <tr data-region="美西" data-text="ID 爱达荷 Idaho 美西">
+      <tr data-region="美西" data-text="ID 爱达荷 Idaho 美西 博伊西、楠帕、爱达荷福尔斯">
         <td><span class="badge west">美西</span></td>
         <td class="code">ID</td>
         <td class="cn">爱达荷</td>
         <td class="en">Idaho</td>
+        <td class="cities">博伊西、楠帕、爱达荷福尔斯</td>
       </tr>
-      <tr data-region="美西" data-text="MT 蒙大拿 Montana 美西">
+      <tr data-region="美西" data-text="MT 蒙大拿 Montana 美西 比灵斯、米苏拉、大瀑布城、博兹曼">
         <td><span class="badge west">美西</span></td>
         <td class="code">MT</td>
         <td class="cn">蒙大拿</td>
         <td class="en">Montana</td>
+        <td class="cities">比灵斯、米苏拉、大瀑布城、博兹曼</td>
       </tr>
-      <tr data-region="美西" data-text="NM 新墨西哥 New Mexico 美西">
+      <tr data-region="美西" data-text="NM 新墨西哥 New Mexico 美西 阿尔伯克基、圣菲、拉斯克鲁塞斯">
         <td><span class="badge west">美西</span></td>
         <td class="code">NM</td>
         <td class="cn">新墨西哥</td>
         <td class="en">New Mexico</td>
+        <td class="cities">阿尔伯克基、圣菲、拉斯克鲁塞斯</td>
       </tr>
-      <tr data-region="美西" data-text="NV 内华达 Nevada 美西">
+      <tr data-region="美西" data-text="NV 内华达 Nevada 美西 拉斯维加斯、亨德森、里诺、北拉斯维加斯">
         <td><span class="badge west">美西</span></td>
         <td class="code">NV</td>
         <td class="cn">内华达</td>
         <td class="en">Nevada</td>
+        <td class="cities">拉斯维加斯、亨德森、里诺、北拉斯维加斯</td>
       </tr>
-      <tr data-region="美西" data-text="OR 俄勒冈 Oregon 美西">
+      <tr data-region="美西" data-text="OR 俄勒冈 Oregon 美西 波特兰、塞勒姆、尤金">
         <td><span class="badge west">美西</span></td>
         <td class="code">OR</td>
         <td class="cn">俄勒冈</td>
         <td class="en">Oregon</td>
+        <td class="cities">波特兰、塞勒姆、尤金</td>
       </tr>
-      <tr data-region="美西" data-text="UT 犹他 Utah 美西">
+      <tr data-region="美西" data-text="UT 犹他 Utah 美西 盐湖城、西瓦利城、普罗沃、西乔丹">
         <td><span class="badge west">美西</span></td>
         <td class="code">UT</td>
         <td class="cn">犹他</td>
         <td class="en">Utah</td>
+        <td class="cities">盐湖城、西瓦利城、普罗沃、西乔丹</td>
       </tr>
-      <tr data-region="美西" data-text="WA 华盛顿 Washington 美西">
+      <tr data-region="美西" data-text="WA 华盛顿 Washington 美西 西雅图、斯波坎、塔科马、贝尔维尤">
         <td><span class="badge west">美西</span></td>
         <td class="code">WA</td>
         <td class="cn">华盛顿</td>
         <td class="en">Washington</td>
+        <td class="cities">西雅图、斯波坎、塔科马、贝尔维尤</td>
       </tr>
-      <tr data-region="美西" data-text="WY 怀俄明 Wyoming 美西">
+      <tr data-region="美西" data-text="WY 怀俄明 Wyoming 美西 夏延、卡斯珀、拉勒米">
         <td><span class="badge west">美西</span></td>
         <td class="code">WY</td>
         <td class="cn">怀俄明</td>
         <td class="en">Wyoming</td>
+        <td class="cities">夏延、卡斯珀、拉勒米</td>
       </tr>
-      <tr data-region="美中" data-text="IA 艾奥瓦 Iowa 美中">
-        <td><span class="badge central">美中</span></td>
-        <td class="code">IA</td>
-        <td class="cn">艾奥瓦</td>
-        <td class="en">Iowa</td>
-      </tr>
-      <tr data-region="美中" data-text="IL 伊利诺伊 Illinois 美中">
-        <td><span class="badge central">美中</span></td>
-        <td class="code">IL</td>
-        <td class="cn">伊利诺伊</td>
-        <td class="en">Illinois</td>
-      </tr>
-      <tr data-region="美中" data-text="IN 印第安纳 Indiana 美中">
-        <td><span class="badge central">美中</span></td>
-        <td class="code">IN</td>
-        <td class="cn">印第安纳</td>
-        <td class="en">Indiana</td>
-      </tr>
-      <tr data-region="美中" data-text="KS 堪萨斯 Kansas 美中">
-        <td><span class="badge central">美中</span></td>
-        <td class="code">KS</td>
-        <td class="cn">堪萨斯</td>
-        <td class="en">Kansas</td>
-      </tr>
-      <tr data-region="美中" data-text="KY 肯塔基 Kentucky 美中">
-        <td><span class="badge central">美中</span></td>
-        <td class="code">KY</td>
-        <td class="cn">肯塔基</td>
-        <td class="en">Kentucky</td>
-      </tr>
-      <tr data-region="美中" data-text="MI 密歇根 Michigan 美中">
-        <td><span class="badge central">美中</span></td>
-        <td class="code">MI</td>
-        <td class="cn">密歇根</td>
-        <td class="en">Michigan</td>
-      </tr>
-      <tr data-region="美中" data-text="MN 明尼苏达 Minnesota 美中">
-        <td><span class="badge central">美中</span></td>
-        <td class="code">MN</td>
-        <td class="cn">明尼苏达</td>
-        <td class="en">Minnesota</td>
-      </tr>
-      <tr data-region="美中" data-text="MO 密苏里 Missouri 美中">
-        <td><span class="badge central">美中</span></td>
-        <td class="code">MO</td>
-        <td class="cn">密苏里</td>
-        <td class="en">Missouri</td>
-      </tr>
-      <tr data-region="美中" data-text="ND 北达科他 North Dakota 美中">
-        <td><span class="badge central">美中</span></td>
-        <td class="code">ND</td>
-        <td class="cn">北达科他</td>
-        <td class="en">North Dakota</td>
-      </tr>
-      <tr data-region="美中" data-text="NE 内布拉斯加 Nebraska 美中">
-        <td><span class="badge central">美中</span></td>
-        <td class="code">NE</td>
-        <td class="cn">内布拉斯加</td>
-        <td class="en">Nebraska</td>
-      </tr>
-      <tr data-region="美中" data-text="OH 俄亥俄 Ohio 美中">
-        <td><span class="badge central">美中</span></td>
-        <td class="code">OH</td>
-        <td class="cn">俄亥俄</td>
-        <td class="en">Ohio</td>
-      </tr>
-      <tr data-region="美中" data-text="SD 南达科他 South Dakota 美中">
-        <td><span class="badge central">美中</span></td>
-        <td class="code">SD</td>
-        <td class="cn">南达科他</td>
-        <td class="en">South Dakota</td>
-      </tr>
-      <tr data-region="美中" data-text="WI 威斯康星 Wisconsin 美中">
-        <td><span class="badge central">美中</span></td>
-        <td class="code">WI</td>
-        <td class="cn">威斯康星</td>
-        <td class="en">Wisconsin</td>
-      </tr>
-      <tr data-region="美南" data-text="AL 阿拉巴马 Alabama 美南">
+      <tr data-region="美南" data-text="AL 阿拉巴马 Alabama 美南 伯明翰、蒙哥马利、亨茨维尔、莫比尔">
         <td><span class="badge south">美南</span></td>
         <td class="code">AL</td>
         <td class="cn">阿拉巴马</td>
         <td class="en">Alabama</td>
+        <td class="cities">伯明翰、蒙哥马利、亨茨维尔、莫比尔</td>
       </tr>
-      <tr data-region="美南" data-text="AR 阿肯色 Arkansas 美南">
+      <tr data-region="美南" data-text="AR 阿肯色 Arkansas 美南 小石城、费耶特维尔、史密斯堡">
         <td><span class="badge south">美南</span></td>
         <td class="code">AR</td>
         <td class="cn">阿肯色</td>
         <td class="en">Arkansas</td>
+        <td class="cities">小石城、费耶特维尔、史密斯堡</td>
       </tr>
-      <tr data-region="美南" data-text="LA 路易斯安那 Louisiana 美南">
+      <tr data-region="美中" data-text="IA 艾奥瓦 Iowa 美中 得梅因、锡达拉皮兹、达文波特">
+        <td><span class="badge central">美中</span></td>
+        <td class="code">IA</td>
+        <td class="cn">艾奥瓦</td>
+        <td class="en">Iowa</td>
+        <td class="cities">得梅因、锡达拉皮兹、达文波特</td>
+      </tr>
+      <tr data-region="美中" data-text="IL 伊利诺伊 Illinois 美中 芝加哥、奥罗拉、罗克福德、斯普林菲尔德">
+        <td><span class="badge central">美中</span></td>
+        <td class="code">IL</td>
+        <td class="cn">伊利诺伊</td>
+        <td class="en">Illinois</td>
+        <td class="cities">芝加哥、奥罗拉、罗克福德、斯普林菲尔德</td>
+      </tr>
+      <tr data-region="美中" data-text="IN 印第安纳 Indiana 美中 印第安纳波利斯、韦恩堡、埃文斯维尔">
+        <td><span class="badge central">美中</span></td>
+        <td class="code">IN</td>
+        <td class="cn">印第安纳</td>
+        <td class="en">Indiana</td>
+        <td class="cities">印第安纳波利斯、韦恩堡、埃文斯维尔</td>
+      </tr>
+      <tr data-region="美中" data-text="KS 堪萨斯 Kansas 美中 威奇托、欧弗兰帕克、堪萨斯城、托皮卡">
+        <td><span class="badge central">美中</span></td>
+        <td class="code">KS</td>
+        <td class="cn">堪萨斯</td>
+        <td class="en">Kansas</td>
+        <td class="cities">威奇托、欧弗兰帕克、堪萨斯城、托皮卡</td>
+      </tr>
+      <tr data-region="美中" data-text="KY 肯塔基 Kentucky 美中 路易斯维尔、列克星敦、鲍灵格林">
+        <td><span class="badge central">美中</span></td>
+        <td class="code">KY</td>
+        <td class="cn">肯塔基</td>
+        <td class="en">Kentucky</td>
+        <td class="cities">路易斯维尔、列克星敦、鲍灵格林</td>
+      </tr>
+      <tr data-region="美南" data-text="LA 路易斯安那 Louisiana 美南 新奥尔良、巴吞鲁日、什里夫波特">
         <td><span class="badge south">美南</span></td>
         <td class="code">LA</td>
         <td class="cn">路易斯安那</td>
         <td class="en">Louisiana</td>
+        <td class="cities">新奥尔良、巴吞鲁日、什里夫波特</td>
       </tr>
-      <tr data-region="美南" data-text="MS 密西西比 Mississippi 美南">
+      <tr data-region="美中" data-text="MI 密歇根 Michigan 美中 底特律、大急流城、安娜堡、兰辛">
+        <td><span class="badge central">美中</span></td>
+        <td class="code">MI</td>
+        <td class="cn">密歇根</td>
+        <td class="en">Michigan</td>
+        <td class="cities">底特律、大急流城、安娜堡、兰辛</td>
+      </tr>
+      <tr data-region="美中" data-text="MN 明尼苏达 Minnesota 美中 明尼阿波利斯、圣保罗、罗切斯特、德卢斯">
+        <td><span class="badge central">美中</span></td>
+        <td class="code">MN</td>
+        <td class="cn">明尼苏达</td>
+        <td class="en">Minnesota</td>
+        <td class="cities">明尼阿波利斯、圣保罗、罗切斯特、德卢斯</td>
+      </tr>
+      <tr data-region="美中" data-text="MO 密苏里 Missouri 美中 堪萨斯城、圣路易斯、斯普林菲尔德、哥伦比亚">
+        <td><span class="badge central">美中</span></td>
+        <td class="code">MO</td>
+        <td class="cn">密苏里</td>
+        <td class="en">Missouri</td>
+        <td class="cities">堪萨斯城、圣路易斯、斯普林菲尔德、哥伦比亚</td>
+      </tr>
+      <tr data-region="美南" data-text="MS 密西西比 Mississippi 美南 杰克逊、格尔夫波特、比洛克西">
         <td><span class="badge south">美南</span></td>
         <td class="code">MS</td>
         <td class="cn">密西西比</td>
         <td class="en">Mississippi</td>
+        <td class="cities">杰克逊、格尔夫波特、比洛克西</td>
       </tr>
-      <tr data-region="美南" data-text="OK 俄克拉何马 Oklahoma 美南">
+      <tr data-region="美中" data-text="ND 北达科他 North Dakota 美中 法戈、俾斯麦、大福克斯">
+        <td><span class="badge central">美中</span></td>
+        <td class="code">ND</td>
+        <td class="cn">北达科他</td>
+        <td class="en">North Dakota</td>
+        <td class="cities">法戈、俾斯麦、大福克斯</td>
+      </tr>
+      <tr data-region="美中" data-text="NE 内布拉斯加 Nebraska 美中 奥马哈、林肯、贝尔维尤">
+        <td><span class="badge central">美中</span></td>
+        <td class="code">NE</td>
+        <td class="cn">内布拉斯加</td>
+        <td class="en">Nebraska</td>
+        <td class="cities">奥马哈、林肯、贝尔维尤</td>
+      </tr>
+      <tr data-region="美中" data-text="OH 俄亥俄 Ohio 美中 哥伦布、克利夫兰、辛辛那提、托莱多">
+        <td><span class="badge central">美中</span></td>
+        <td class="code">OH</td>
+        <td class="cn">俄亥俄</td>
+        <td class="en">Ohio</td>
+        <td class="cities">哥伦布、克利夫兰、辛辛那提、托莱多</td>
+      </tr>
+      <tr data-region="美南" data-text="OK 俄克拉何马 Oklahoma 美南 俄克拉荷马城、塔尔萨、诺曼">
         <td><span class="badge south">美南</span></td>
         <td class="code">OK</td>
         <td class="cn">俄克拉何马</td>
         <td class="en">Oklahoma</td>
+        <td class="cities">俄克拉荷马城、塔尔萨、诺曼</td>
       </tr>
-      <tr data-region="美南" data-text="TN 田纳西 Tennessee 美南">
+      <tr data-region="美中" data-text="SD 南达科他 South Dakota 美中 苏福尔斯、拉皮德城、阿伯丁">
+        <td><span class="badge central">美中</span></td>
+        <td class="code">SD</td>
+        <td class="cn">南达科他</td>
+        <td class="en">South Dakota</td>
+        <td class="cities">苏福尔斯、拉皮德城、阿伯丁</td>
+      </tr>
+      <tr data-region="美南" data-text="TN 田纳西 Tennessee 美南 孟菲斯、纳什维尔、诺克斯维尔、查塔努加">
         <td><span class="badge south">美南</span></td>
         <td class="code">TN</td>
         <td class="cn">田纳西</td>
         <td class="en">Tennessee</td>
+        <td class="cities">孟菲斯、纳什维尔、诺克斯维尔、查塔努加</td>
       </tr>
-      <tr data-region="美南" data-text="TX 得克萨斯 Texas 美南">
+      <tr data-region="美南" data-text="TX 得克萨斯 Texas 美南 休斯顿、达拉斯、奥斯汀、圣安东尼奥、沃斯堡">
         <td><span class="badge south">美南</span></td>
         <td class="code">TX</td>
         <td class="cn">得克萨斯</td>
         <td class="en">Texas</td>
+        <td class="cities">休斯顿、达拉斯、奥斯汀、圣安东尼奥、沃斯堡</td>
       </tr>
-      <tr data-region="美东" data-text="CT 康涅狄格 Connecticut 美东">
+      <tr data-region="美中" data-text="WI 威斯康星 Wisconsin 美中 密尔沃基、麦迪逊、格林贝、基诺沙">
+        <td><span class="badge central">美中</span></td>
+        <td class="code">WI</td>
+        <td class="cn">威斯康星</td>
+        <td class="en">Wisconsin</td>
+        <td class="cities">密尔沃基、麦迪逊、格林贝、基诺沙</td>
+      </tr>
+      <tr data-region="美东" data-text="CT 康涅狄格 Connecticut 美东 布里奇波特、纽黑文、哈特福德、斯坦福德">
         <td><span class="badge east">美东</span></td>
         <td class="code">CT</td>
         <td class="cn">康涅狄格</td>
         <td class="en">Connecticut</td>
+        <td class="cities">布里奇波特、纽黑文、哈特福德、斯坦福德</td>
       </tr>
-      <tr data-region="美东" data-text="DC 哥伦比亚特区 District of Columbia 美东">
+      <tr data-region="美东" data-text="DC 哥伦比亚特区 District of Columbia 美东 华盛顿">
         <td><span class="badge east">美东</span></td>
         <td class="code">DC</td>
         <td class="cn">哥伦比亚特区</td>
         <td class="en">District of Columbia</td>
+        <td class="cities">华盛顿</td>
       </tr>
-      <tr data-region="美东" data-text="DE 特拉华 Delaware 美东">
+      <tr data-region="美东" data-text="DE 特拉华 Delaware 美东 威尔明顿、多佛、纽瓦克">
         <td><span class="badge east">美东</span></td>
         <td class="code">DE</td>
         <td class="cn">特拉华</td>
         <td class="en">Delaware</td>
+        <td class="cities">威尔明顿、多佛、纽瓦克</td>
       </tr>
-      <tr data-region="美东" data-text="FL 佛罗里达 Florida 美东">
+      <tr data-region="美东" data-text="FL 佛罗里达 Florida 美东 杰克逊维尔、迈阿密、坦帕、奥兰多、塔拉哈西">
         <td><span class="badge east">美东</span></td>
         <td class="code">FL</td>
         <td class="cn">佛罗里达</td>
         <td class="en">Florida</td>
+        <td class="cities">杰克逊维尔、迈阿密、坦帕、奥兰多、塔拉哈西</td>
       </tr>
-      <tr data-region="美东" data-text="GA 佐治亚 Georgia 美东">
+      <tr data-region="美东" data-text="GA 佐治亚 Georgia 美东 亚特兰大、奥古斯塔、哥伦布、萨凡纳">
         <td><span class="badge east">美东</span></td>
         <td class="code">GA</td>
         <td class="cn">佐治亚</td>
         <td class="en">Georgia</td>
+        <td class="cities">亚特兰大、奥古斯塔、哥伦布、萨凡纳</td>
       </tr>
-      <tr data-region="美东" data-text="MA 马萨诸塞 Massachusetts 美东">
+      <tr data-region="美东" data-text="MA 马萨诸塞 Massachusetts 美东 波士顿、伍斯特、斯普林菲尔德、剑桥">
         <td><span class="badge east">美东</span></td>
         <td class="code">MA</td>
         <td class="cn">马萨诸塞</td>
         <td class="en">Massachusetts</td>
+        <td class="cities">波士顿、伍斯特、斯普林菲尔德、剑桥</td>
       </tr>
-      <tr data-region="美东" data-text="MD 马里兰 Maryland 美东">
+      <tr data-region="美东" data-text="MD 马里兰 Maryland 美东 巴尔的摩、弗雷德里克、罗克维尔、安纳波利斯">
         <td><span class="badge east">美东</span></td>
         <td class="code">MD</td>
         <td class="cn">马里兰</td>
         <td class="en">Maryland</td>
+        <td class="cities">巴尔的摩、弗雷德里克、罗克维尔、安纳波利斯</td>
       </tr>
-      <tr data-region="美东" data-text="ME 缅因 Maine 美东">
+      <tr data-region="美东" data-text="ME 缅因 Maine 美东 波特兰、刘易斯顿、班戈">
         <td><span class="badge east">美东</span></td>
         <td class="code">ME</td>
         <td class="cn">缅因</td>
         <td class="en">Maine</td>
+        <td class="cities">波特兰、刘易斯顿、班戈</td>
       </tr>
-      <tr data-region="美东" data-text="NC 北卡罗来纳 North Carolina 美东">
+      <tr data-region="美东" data-text="NC 北卡罗来纳 North Carolina 美东 夏洛特、罗利、格林斯伯勒、达勒姆">
         <td><span class="badge east">美东</span></td>
         <td class="code">NC</td>
         <td class="cn">北卡罗来纳</td>
         <td class="en">North Carolina</td>
+        <td class="cities">夏洛特、罗利、格林斯伯勒、达勒姆</td>
       </tr>
-      <tr data-region="美东" data-text="NH 新罕布什尔 New Hampshire 美东">
+      <tr data-region="美东" data-text="NH 新罕布什尔 New Hampshire 美东 曼彻斯特、纳舒厄、康科德">
         <td><span class="badge east">美东</span></td>
         <td class="code">NH</td>
         <td class="cn">新罕布什尔</td>
         <td class="en">New Hampshire</td>
+        <td class="cities">曼彻斯特、纳舒厄、康科德</td>
       </tr>
-      <tr data-region="美东" data-text="NJ 新泽西 New Jersey 美东">
+      <tr data-region="美东" data-text="NJ 新泽西 New Jersey 美东 纽瓦克、泽西市、帕特森、特伦顿">
         <td><span class="badge east">美东</span></td>
         <td class="code">NJ</td>
         <td class="cn">新泽西</td>
         <td class="en">New Jersey</td>
+        <td class="cities">纽瓦克、泽西市、帕特森、特伦顿</td>
       </tr>
-      <tr data-region="美东" data-text="NY 纽约 New York 美东">
+      <tr data-region="美东" data-text="NY 纽约 New York 美东 纽约市、布法罗、罗切斯特、奥尔巴尼">
         <td><span class="badge east">美东</span></td>
         <td class="code">NY</td>
         <td class="cn">纽约</td>
         <td class="en">New York</td>
+        <td class="cities">纽约市、布法罗、罗切斯特、奥尔巴尼</td>
       </tr>
-      <tr data-region="美东" data-text="PA 宾夕法尼亚 Pennsylvania 美东">
+      <tr data-region="美东" data-text="PA 宾夕法尼亚 Pennsylvania 美东 费城、匹兹堡、阿伦敦、哈里斯堡">
         <td><span class="badge east">美东</span></td>
         <td class="code">PA</td>
         <td class="cn">宾夕法尼亚</td>
         <td class="en">Pennsylvania</td>
+        <td class="cities">费城、匹兹堡、阿伦敦、哈里斯堡</td>
       </tr>
-      <tr data-region="美东" data-text="RI 罗得岛 Rhode Island 美东">
+      <tr data-region="美东" data-text="RI 罗得岛 Rhode Island 美东 普罗维登斯、沃里克、克兰斯顿">
         <td><span class="badge east">美东</span></td>
         <td class="code">RI</td>
         <td class="cn">罗得岛</td>
         <td class="en">Rhode Island</td>
+        <td class="cities">普罗维登斯、沃里克、克兰斯顿</td>
       </tr>
-      <tr data-region="美东" data-text="SC 南卡罗来纳 South Carolina 美东">
+      <tr data-region="美东" data-text="SC 南卡罗来纳 South Carolina 美东 哥伦比亚、查尔斯顿、北查尔斯顿">
         <td><span class="badge east">美东</span></td>
         <td class="code">SC</td>
         <td class="cn">南卡罗来纳</td>
         <td class="en">South Carolina</td>
+        <td class="cities">哥伦比亚、查尔斯顿、北查尔斯顿</td>
       </tr>
-      <tr data-region="美东" data-text="VA 弗吉尼亚 Virginia 美东">
+      <tr data-region="美东" data-text="VA 弗吉尼亚 Virginia 美东 弗吉尼亚比奇、诺福克、里士满、切萨皮克">
         <td><span class="badge east">美东</span></td>
         <td class="code">VA</td>
         <td class="cn">弗吉尼亚</td>
         <td class="en">Virginia</td>
+        <td class="cities">弗吉尼亚比奇、诺福克、里士满、切萨皮克</td>
       </tr>
-      <tr data-region="美东" data-text="VT 佛蒙特 Vermont 美东">
+      <tr data-region="美东" data-text="VT 佛蒙特 Vermont 美东 伯灵顿、拉特兰、蒙彼利埃">
         <td><span class="badge east">美东</span></td>
         <td class="code">VT</td>
         <td class="cn">佛蒙特</td>
         <td class="en">Vermont</td>
+        <td class="cities">伯灵顿、拉特兰、蒙彼利埃</td>
       </tr>
-      <tr data-region="美东" data-text="WV 西弗吉尼亚 West Virginia 美东">
+      <tr data-region="美东" data-text="WV 西弗吉尼亚 West Virginia 美东 查尔斯顿、亨廷顿、摩根敦">
         <td><span class="badge east">美东</span></td>
         <td class="code">WV</td>
         <td class="cn">西弗吉尼亚</td>
         <td class="en">West Virginia</td>
+        <td class="cities">查尔斯顿、亨廷顿、摩根敦</td>
       </tr>
     </tbody>
   </table>
@@ -670,10 +727,19 @@
   const labelByCode = {};
   mapLabels.forEach(t => labelByCode[t.querySelector('.ml-code').textContent] = t);
 
+  const citiesByCode = {};
+  rows.forEach(r => {
+    const code = r.querySelector('.code').textContent.trim();
+    const all = r.querySelector('.cities').textContent.trim();
+    const first = all.split('、').slice(0, 3).join('、') + (all.split('、').length > 3 ? ' 等' : '');
+    citiesByCode[code] = first;
+  });
+
   mapPaths.forEach(p => {
     const label = labelByCode[p.dataset.code];
     p.addEventListener('mouseenter', () => {
-      tip.innerHTML = `<b>${p.dataset.cn}</b> <i>${p.dataset.en}</i> · ${p.dataset.region} · ${p.dataset.code}`;
+      const cities = citiesByCode[p.dataset.code];
+      tip.innerHTML = `<b>${p.dataset.cn}</b> <i>${p.dataset.en}</i> · ${p.dataset.region} · ${p.dataset.code}<br><span style="color:#c3cad4;font-size:10.5px">主要城市：</span><span style="font-size:10.5px">${cities}</span>`;
       tip.classList.add('on');
       if (label) label.classList.add('hov');
     });
