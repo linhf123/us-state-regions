@@ -56,6 +56,19 @@
   #map .st:hover { fill-opacity: 1; stroke: #1a1d21; stroke-width: 1.7; }
   #map .st.dim { opacity: .15; }
   #map .st.sel { fill-opacity: 1; stroke: #1a1d21; stroke-width: 1.9; }
+  #map .ml { font-family: ui-monospace, "SF Mono", Menlo, monospace; font-size: 9px;
+             font-weight: 600; fill: rgba(255,255,255,.88); text-anchor: middle;
+             pointer-events: none; user-select: none; dominant-baseline: central;
+             paint-order: stroke; stroke: rgba(0,0,0,.28); stroke-width: 2.2px;
+             transition: opacity .15s; }
+  #map .ml.dim { opacity: .15; }
+  #map .ml.sel { fill: #fff; stroke: rgba(0,0,0,.5); stroke-width: 2.8px; }
+  #map .ml-sm { opacity: 0; }
+  #map .ml-sm.hov, #map .ml-sm.sel { opacity: 1; }
+  @media (max-width: 540px) {
+    #map .ml { font-size: 7px; stroke-width: 1.6px; }
+    #map .ml.sel { stroke-width: 2.2px; }
+  }
   .tip { position: absolute; z-index: 4; left: 0; top: 0; pointer-events: none; opacity: 0;
          transform: translate(-50%, -140%); transition: opacity .12s;
          background: rgba(26,29,33,.93); color: #fff; font-size: 11.5px; line-height: 1.5;
@@ -167,7 +180,7 @@
   <section class="mapbox">
     <div class="map-head">
       <h2>四分区地图</h2>
-      <span>悬停查看中英文名 · 点击州定位到下方表格</span>
+      <span>点击州定位到下方表格</span>
     </div>
     <div class="map-wrap" id="mapWrap">
       <svg id="map" viewBox="-30 0 960 506" xmlns="http://www.w3.org/2000/svg" role="img"
@@ -224,6 +237,58 @@
           <path class="st r-east" id="st-VA" data-code="VA" data-cn="弗吉尼亚" data-en="Virginia" data-region="美东" aria-label="弗吉尼亚 Virginia" d="M782.9 232.6L783.3 231.6L788.7 229.8L787.7 233L787.4 233.5L786.3 233.5L785.6 234.9L785.4 239.3L784.6 241.6L785.1 241.7L783.7 245L783.6 247.4L782.9 248.6L782.1 248.8L782.4 249.3L782 249.5L780.4 245.3L780.6 239.8L781.7 236.5L781.4 236L782.4 235.5L782.9 234.3L782.9 233.8L781.8 233.7ZM693.7 256.8L694.3 257.2L693.5 257.9L693.6 258.4L694.5 258.6L694.8 260L696.1 261.2L697 261.1L698.9 262.4L700.6 262L701.3 261L702.4 260.5L703.1 259.2L705.4 260.8L709.6 258.7L710.4 257.8L709.9 257.2L710.1 256.3L711.6 257.2L714.4 254.8L715 254.5L715.7 255.5L718 253.5L718.1 253L717.4 253.1L717.4 252.5L718.7 251.1L717.4 250.1L717.8 248.8L721 243L721.3 240.1L722.9 238.2L722.5 237.5L723.8 234.9L723.9 231.8L725.6 232.3L726.8 233.9L729.3 234.3L730.4 232.5L732.3 225.3L734.4 226.6L735 224.4L737.1 221.9L737.5 222.2L738 221.1L737.7 220.9L739.6 217.9L739 217.4L739.9 214.4L739.5 214.3L739.4 212.2L747.8 217L748.6 213.2L750.9 213.1L752.7 214.2L752.2 216.4L753.2 217.1L756.4 217.4L756.5 218.1L758 218.2L759.9 219.6L760.4 222.5L759.3 223.6L759.5 224.3L757.8 224.6L757.4 228.3L757.7 229.5L758.7 230.3L761.6 228.4L762.2 228.7L762.1 230L763.3 230.8L763.4 231.6L767.1 232.3L768.6 231.8L770.5 233.7L775.1 235.4L775 236.5L774.3 237.1L774.9 239.2L774.5 240L775.2 240.3L774.3 241L772.5 240.3L772.1 240.8L770.5 238.7L768.3 237.9L765.9 235.7L765.2 235.4L765.1 235.9L768.3 238.6L770.1 239.3L771.7 241.4L773.2 241.1L773.7 241.6L775.4 241.7L774.8 242.9L775.7 242.5L776.2 243L776.9 244.7L776.7 246.2L774.4 245L774 245.7L775.8 247.1L773.8 248L774.3 248.6L775.4 248.2L775.5 249.4L776.2 249L777.2 249.7L777.7 250.4L777.5 252L775.8 253L775.1 252L772.5 250.8L772.6 250L771.7 249L770.2 249.9L768.3 248.9L767.3 249.7L768 250.1L769.6 249.9L770.5 250.6L771 250.5L771.2 249.5L772.3 252.4L773.5 252.4L775.1 253.5L775.3 254.5L777.1 253.6L777.8 254.2L777.3 252.9L778.2 252.6L780.9 253.1L782.3 252.5L785.6 259L747.1 266.9L723.5 271L705.1 273.4L700.6 273.9L701 273.3L671.2 277.8L673.2 276.3L678.7 274.1L679.4 271.8L682.2 270.8L682.1 269.1L684 267.6L683.8 266.3L688.8 262.7Z"/>
           <path class="st r-east" id="st-VT" data-code="VT" data-cn="佛蒙特" data-en="Vermont" data-region="美东" aria-label="佛蒙特 Vermont" d="M784.6 95.9L808.1 89.9L807.7 90.5L808.7 91.7L807.8 95.2L809.3 97.1L809.5 98.2L809.1 98.6L809.6 99.4L808.3 101.5L807.3 102L807.2 102.9L804.6 104.3L804.7 106.7L805.7 108.4L805 110.5L805.3 111.8L804.7 113.1L804.9 114.8L804.2 115.7L804.1 118.3L803.5 119L804.5 123.8L804.2 124.9L805.1 128.1L804.8 128.7L805.3 129.4L804.5 130.5L804.5 132.7L806.4 134.6L795.7 136.9L795 136L792.3 122.2L791.2 121L790.4 121.3L790.3 122.4L789.7 122.1L790 118.5L789.2 117.8L789.2 116.7L787.6 113.8L787.6 111L788.3 109.2L787.5 107.5L787.8 106.1L785.7 102.9L785.7 99.9L784.9 99.2L785.1 97.6Z"/>
           <path class="st r-east" id="st-WV" data-code="WV" data-cn="西弗吉尼亚" data-en="West Virginia" data-region="美东" aria-label="西弗吉尼亚 West Virginia" d="M682.2 241.6L683.2 241.8L686.1 240.5L686.1 238.1L687.8 237L686.6 233.8L687.6 232.8L687.4 231.8L688.7 229.1L690 229.6L690.8 230.7L690.5 231.5L691.1 231.7L692 230.2L692.5 230.5L692.4 228.7L691.6 227.6L692.5 227.2L692.1 225.7L693 223.8L694.5 223.7L694.5 222.3L695.6 220.9L696.5 221.1L696.9 221.9L699.3 220.5L702.5 215.8L703.2 215.6L703.7 213.7L703 213L703.8 210.8L703.4 209.8L704.1 209.9L703.8 206.8L705 201.9L704.7 199.2L703.3 197.4L703.7 196.5L705.2 195.8L708 212.9L722.6 210.4L724.2 220L726.6 217.8L728.8 214L730.9 214.3L732.7 210.5L734.8 211.8L737.5 211.6L738.1 210.9L737.6 210.2L738.2 210.1L737.6 209.7L738.3 209.7L738.6 209L739.7 209.2L740.8 207.6L742.1 207.6L743.6 208.8L746.1 208.3L746.2 208.9L745.4 209.3L747.3 210.8L748.2 212L748.1 213.1L748.6 213.2L747.8 217L739.4 212.2L739.5 214.3L739.9 214.4L739 217.4L739.6 217.9L737.7 220.9L738 221.1L737.5 222.2L737.1 221.9L735 224.4L734.4 226.6L732.3 225.3L730.4 232.5L729.3 234.3L726.8 233.9L725.6 232.3L723.9 231.8L723.8 234.9L722.5 237.5L722.9 238.2L721.3 240.1L721 243L717.8 248.8L717.4 250.1L718.7 251.1L717.4 252.5L717.4 253.1L718.1 253L718 253.5L715.7 255.5L715 254.5L714.4 254.8L711.6 257.2L710.1 256.3L709.9 257.2L710.4 257.8L709.6 258.7L705.4 260.8L703.1 259.2L702.4 260.5L701.3 261L700.6 262L698.9 262.4L697 261.1L696.1 261.2L694.8 260L694.5 258.6L693.6 258.4L693.5 257.9L694.3 257.2L691.5 256.7L690.3 255.6L688.6 255L687.6 252.9L684.9 250.5L685.3 249.6L684.5 249.3L682.4 247L683 244.5L682.4 243Z"/>
+          <!-- state code labels -->
+          <text class="ml" x="143.6" y="433.4">AK</text>
+          <text class="ml" x="251.2" y="315.6">AZ</text>
+          <text class="ml" x="163.3" y="242.3">CA</text>
+          <text class="ml" x="355.4" y="236.8">CO</text>
+          <text class="ml" x="314.4" y="464.5">HI</text>
+          <text class="ml" x="250.4" y="110.0">ID</text>
+          <text class="ml" x="318.4" y="79.1">MT</text>
+          <text class="ml" x="338.6" y="322.6">NM</text>
+          <text class="ml" x="199.4" y="219.2">NV</text>
+          <text class="ml" x="168.9" y="105.7">OR</text>
+          <text class="ml" x="270.2" y="216.7">UT</text>
+          <text class="ml" x="175.2" y="52.0">WA</text>
+          <text class="ml" x="335.9" y="158.9">WY</text>
+          <text class="ml" x="529.6" y="187.4">IA</text>
+          <text class="ml" x="581.7" y="231.4">IL</text>
+          <text class="ml" x="626.8" y="227.9">IN</text>
+          <text class="ml" x="459.3" y="252.3">KS</text>
+          <text class="ml" x="645.1" y="265.1">KY</text>
+          <text class="ml" x="621.5" y="137.3">MI</text>
+          <text class="ml" x="527.0" y="104.9">MN</text>
+          <text class="ml" x="546.2" y="255.6">MO</text>
+          <text class="ml" x="437.8" y="83.5">ND</text>
+          <text class="ml" x="442.4" y="194.9">NE</text>
+          <text class="ml" x="674.2" y="211.4">OH</text>
+          <text class="ml" x="436.1" y="144.1">SD</text>
+          <text class="ml" x="574.1" y="133.8">WI</text>
+          <text class="ml" x="635.3" y="362.8">AL</text>
+          <text class="ml" x="546.5" y="327.8">AR</text>
+          <text class="ml" x="550.9" y="382.6">LA</text>
+          <text class="ml" x="584.3" y="365.9">MS</text>
+          <text class="ml" x="453.4" y="312.0">OK</text>
+          <text class="ml" x="633.0" y="295.3">TN</text>
+          <text class="ml" x="414.7" y="379.2">TX</text>
+          <text class="ml ml-sm" x="813.5" y="165.8">CT</text>
+          <text class="ml ml-sm" x="760.0" y="209.2">DC</text>
+          <text class="ml ml-sm" x="786.9" y="210.4">DE</text>
+          <text class="ml" x="699.7" y="454.1">FL</text>
+          <text class="ml" x="691.2" y="348.6">GA</text>
+          <text class="ml" x="816.0" y="145.5">MA</text>
+          <text class="ml ml-sm" x="771.1" y="212.1">MD</text>
+          <text class="ml" x="834.2" y="84.5">ME</text>
+          <text class="ml" x="725.6" y="292.9">NC</text>
+          <text class="ml" x="815.7" y="113.9">NH</text>
+          <text class="ml ml-sm" x="792.6" y="189.6">NJ</text>
+          <text class="ml" x="761.4" y="143.6">NY</text>
+          <text class="ml" x="749.2" y="185.0">PA</text>
+          <text class="ml ml-sm" x="829.2" y="159.2">RI</text>
+          <text class="ml" x="718.5" y="332.9">SC</text>
+          <text class="ml" x="735.0" y="250.0">VA</text>
+          <text class="ml" x="797.1" y="118.4">VT</text>
+          <text class="ml" x="720.4" y="234.1">WV</text>
         </g>
       </svg>
       <div class="tip" id="tip"></div>
@@ -595,13 +660,18 @@
 
   // ---------- 分区地图 ----------
   const mapPaths = [...document.querySelectorAll('#map .st')];
+  const mapLabels = [...document.querySelectorAll('#map .ml')];
   const tip = document.getElementById('tip');
   const mapWrap = document.getElementById('mapWrap');
+  const labelByCode = {};
+  mapLabels.forEach(t => labelByCode[t.textContent] = t);
 
   mapPaths.forEach(p => {
+    const label = labelByCode[p.dataset.code];
     p.addEventListener('mouseenter', () => {
       tip.innerHTML = `<b>${p.dataset.cn}</b> <i>${p.dataset.en}</i> · ${p.dataset.region} · ${p.dataset.code}`;
       tip.classList.add('on');
+      if (label) label.classList.add('hov');
     });
     p.addEventListener('mousemove', e => {
       const r = mapWrap.getBoundingClientRect();
@@ -610,7 +680,10 @@
       tip.style.top = y + 'px';
       tip.classList.toggle('below', y < 46);   // 顶部各州提示改到光标下方，避免出框
     });
-    p.addEventListener('mouseleave', () => tip.classList.remove('on'));
+    p.addEventListener('mouseleave', () => {
+      tip.classList.remove('on');
+      if (label) label.classList.remove('hov');
+    });
     p.addEventListener('click', () => focusState(p.dataset.code));
   });
 
@@ -626,6 +699,7 @@
       row.scrollIntoView({ behavior: 'smooth', block: 'center' });
     }
     mapPaths.forEach(p => p.classList.toggle('sel', p.dataset.code === code));
+    mapLabels.forEach(t => t.classList.toggle('sel', t.textContent === code));
   }
 
   function apply() {
@@ -640,6 +714,7 @@
       if (vis) { shown++; visible.add(r.querySelector('.code').textContent.trim()); }
     });
     mapPaths.forEach(p => p.classList.toggle('dim', !visible.has(p.dataset.code)));
+    mapLabels.forEach(t => t.classList.toggle('dim', !visible.has(t.textContent)));
     empty.style.display = shown ? 'none' : 'block';
   }
 
