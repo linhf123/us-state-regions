@@ -57,16 +57,20 @@
   #map .st.dim { opacity: .15; }
   #map .st.sel { fill-opacity: 1; stroke: #1a1d21; stroke-width: 1.9; }
   #map .ml { font-family: ui-monospace, "SF Mono", Menlo, monospace; font-size: 9px;
-             font-weight: 600; fill: rgba(255,255,255,.88); text-anchor: middle;
+             font-weight: 600; fill: rgba(255,255,255,.92); text-anchor: middle;
              pointer-events: none; user-select: none; dominant-baseline: central;
-             paint-order: stroke; stroke: rgba(0,0,0,.28); stroke-width: 2.2px;
+             paint-order: stroke; stroke: rgba(0,0,0,.32); stroke-width: 2.4px;
              transition: opacity .15s; }
+  #map .ml .ml-code { font-family: ui-monospace, "SF Mono", Menlo, monospace; }
+  #map .ml .ml-cn { font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+                    font-size: 7px; font-weight: 500; }
   #map .ml.dim { opacity: .15; }
-  #map .ml.sel { fill: #fff; stroke: rgba(0,0,0,.5); stroke-width: 2.8px; }
+  #map .ml.sel { fill: #fff; stroke: rgba(0,0,0,.5); stroke-width: 3px; }
   #map .ml-sm { opacity: 0; }
   #map .ml-sm.hov, #map .ml-sm.sel { opacity: 1; }
   @media (max-width: 540px) {
-    #map .ml { font-size: 7px; stroke-width: 1.6px; }
+    #map .ml { font-size: 7px; stroke-width: 1.8px; }
+    #map .ml .ml-cn { font-size: 6px; }
     #map .ml.sel { stroke-width: 2.2px; }
   }
   .tip { position: absolute; z-index: 4; left: 0; top: 0; pointer-events: none; opacity: 0;
@@ -238,57 +242,57 @@
           <path class="st r-east" id="st-VT" data-code="VT" data-cn="佛蒙特" data-en="Vermont" data-region="美东" aria-label="佛蒙特 Vermont" d="M784.6 95.9L808.1 89.9L807.7 90.5L808.7 91.7L807.8 95.2L809.3 97.1L809.5 98.2L809.1 98.6L809.6 99.4L808.3 101.5L807.3 102L807.2 102.9L804.6 104.3L804.7 106.7L805.7 108.4L805 110.5L805.3 111.8L804.7 113.1L804.9 114.8L804.2 115.7L804.1 118.3L803.5 119L804.5 123.8L804.2 124.9L805.1 128.1L804.8 128.7L805.3 129.4L804.5 130.5L804.5 132.7L806.4 134.6L795.7 136.9L795 136L792.3 122.2L791.2 121L790.4 121.3L790.3 122.4L789.7 122.1L790 118.5L789.2 117.8L789.2 116.7L787.6 113.8L787.6 111L788.3 109.2L787.5 107.5L787.8 106.1L785.7 102.9L785.7 99.9L784.9 99.2L785.1 97.6Z"/>
           <path class="st r-east" id="st-WV" data-code="WV" data-cn="西弗吉尼亚" data-en="West Virginia" data-region="美东" aria-label="西弗吉尼亚 West Virginia" d="M682.2 241.6L683.2 241.8L686.1 240.5L686.1 238.1L687.8 237L686.6 233.8L687.6 232.8L687.4 231.8L688.7 229.1L690 229.6L690.8 230.7L690.5 231.5L691.1 231.7L692 230.2L692.5 230.5L692.4 228.7L691.6 227.6L692.5 227.2L692.1 225.7L693 223.8L694.5 223.7L694.5 222.3L695.6 220.9L696.5 221.1L696.9 221.9L699.3 220.5L702.5 215.8L703.2 215.6L703.7 213.7L703 213L703.8 210.8L703.4 209.8L704.1 209.9L703.8 206.8L705 201.9L704.7 199.2L703.3 197.4L703.7 196.5L705.2 195.8L708 212.9L722.6 210.4L724.2 220L726.6 217.8L728.8 214L730.9 214.3L732.7 210.5L734.8 211.8L737.5 211.6L738.1 210.9L737.6 210.2L738.2 210.1L737.6 209.7L738.3 209.7L738.6 209L739.7 209.2L740.8 207.6L742.1 207.6L743.6 208.8L746.1 208.3L746.2 208.9L745.4 209.3L747.3 210.8L748.2 212L748.1 213.1L748.6 213.2L747.8 217L739.4 212.2L739.5 214.3L739.9 214.4L739 217.4L739.6 217.9L737.7 220.9L738 221.1L737.5 222.2L737.1 221.9L735 224.4L734.4 226.6L732.3 225.3L730.4 232.5L729.3 234.3L726.8 233.9L725.6 232.3L723.9 231.8L723.8 234.9L722.5 237.5L722.9 238.2L721.3 240.1L721 243L717.8 248.8L717.4 250.1L718.7 251.1L717.4 252.5L717.4 253.1L718.1 253L718 253.5L715.7 255.5L715 254.5L714.4 254.8L711.6 257.2L710.1 256.3L709.9 257.2L710.4 257.8L709.6 258.7L705.4 260.8L703.1 259.2L702.4 260.5L701.3 261L700.6 262L698.9 262.4L697 261.1L696.1 261.2L694.8 260L694.5 258.6L693.6 258.4L693.5 257.9L694.3 257.2L691.5 256.7L690.3 255.6L688.6 255L687.6 252.9L684.9 250.5L685.3 249.6L684.5 249.3L682.4 247L683 244.5L682.4 243Z"/>
           <!-- state code labels -->
-          <text class="ml" x="143.6" y="433.4">AK</text>
-          <text class="ml" x="251.2" y="315.6">AZ</text>
-          <text class="ml" x="163.3" y="242.3">CA</text>
-          <text class="ml" x="355.4" y="236.8">CO</text>
-          <text class="ml" x="314.4" y="464.5">HI</text>
-          <text class="ml" x="250.4" y="110.0">ID</text>
-          <text class="ml" x="318.4" y="79.1">MT</text>
-          <text class="ml" x="338.6" y="322.6">NM</text>
-          <text class="ml" x="199.4" y="219.2">NV</text>
-          <text class="ml" x="168.9" y="105.7">OR</text>
-          <text class="ml" x="270.2" y="216.7">UT</text>
-          <text class="ml" x="175.2" y="52.0">WA</text>
-          <text class="ml" x="335.9" y="158.9">WY</text>
-          <text class="ml" x="529.6" y="187.4">IA</text>
-          <text class="ml" x="581.7" y="231.4">IL</text>
-          <text class="ml" x="626.8" y="227.9">IN</text>
-          <text class="ml" x="459.3" y="252.3">KS</text>
-          <text class="ml" x="645.1" y="265.1">KY</text>
-          <text class="ml" x="621.5" y="137.3">MI</text>
-          <text class="ml" x="527.0" y="104.9">MN</text>
-          <text class="ml" x="546.2" y="255.6">MO</text>
-          <text class="ml" x="437.8" y="83.5">ND</text>
-          <text class="ml" x="442.4" y="194.9">NE</text>
-          <text class="ml" x="674.2" y="211.4">OH</text>
-          <text class="ml" x="436.1" y="144.1">SD</text>
-          <text class="ml" x="574.1" y="133.8">WI</text>
-          <text class="ml" x="635.3" y="362.8">AL</text>
-          <text class="ml" x="546.5" y="327.8">AR</text>
-          <text class="ml" x="550.9" y="382.6">LA</text>
-          <text class="ml" x="584.3" y="365.9">MS</text>
-          <text class="ml" x="453.4" y="312.0">OK</text>
-          <text class="ml" x="633.0" y="295.3">TN</text>
-          <text class="ml" x="414.7" y="379.2">TX</text>
-          <text class="ml ml-sm" x="813.5" y="165.8">CT</text>
-          <text class="ml ml-sm" x="760.0" y="209.2">DC</text>
-          <text class="ml ml-sm" x="786.9" y="210.4">DE</text>
-          <text class="ml" x="699.7" y="454.1">FL</text>
-          <text class="ml" x="691.2" y="348.6">GA</text>
-          <text class="ml" x="816.0" y="145.5">MA</text>
-          <text class="ml ml-sm" x="771.1" y="212.1">MD</text>
-          <text class="ml" x="834.2" y="84.5">ME</text>
-          <text class="ml" x="725.6" y="292.9">NC</text>
-          <text class="ml" x="815.7" y="113.9">NH</text>
-          <text class="ml ml-sm" x="792.6" y="189.6">NJ</text>
-          <text class="ml" x="761.4" y="143.6">NY</text>
-          <text class="ml" x="749.2" y="185.0">PA</text>
-          <text class="ml ml-sm" x="829.2" y="159.2">RI</text>
-          <text class="ml" x="718.5" y="332.9">SC</text>
-          <text class="ml" x="735.0" y="250.0">VA</text>
-          <text class="ml" x="797.1" y="118.4">VT</text>
-          <text class="ml" x="720.4" y="234.1">WV</text>
+          <text class="ml" x="143.6" y="433.4"><tspan class="ml-code" x="143.6" dy="-0.3em">AK</tspan><tspan class="ml-cn" x="143.6" dy="1.1em">阿拉斯加</tspan></text>
+          <text class="ml" x="251.2" y="315.6"><tspan class="ml-code" x="251.2" dy="-0.3em">AZ</tspan><tspan class="ml-cn" x="251.2" dy="1.1em">亚利桑那</tspan></text>
+          <text class="ml" x="163.3" y="242.3"><tspan class="ml-code" x="163.3" dy="-0.3em">CA</tspan><tspan class="ml-cn" x="163.3" dy="1.1em">加利福尼亚</tspan></text>
+          <text class="ml" x="355.4" y="236.8"><tspan class="ml-code" x="355.4" dy="-0.3em">CO</tspan><tspan class="ml-cn" x="355.4" dy="1.1em">科罗拉多</tspan></text>
+          <text class="ml" x="314.4" y="464.5"><tspan class="ml-code" x="314.4" dy="-0.3em">HI</tspan><tspan class="ml-cn" x="314.4" dy="1.1em">夏威夷</tspan></text>
+          <text class="ml" x="250.4" y="110.0"><tspan class="ml-code" x="250.4" dy="-0.3em">ID</tspan><tspan class="ml-cn" x="250.4" dy="1.1em">爱达荷</tspan></text>
+          <text class="ml" x="318.4" y="79.1"><tspan class="ml-code" x="318.4" dy="-0.3em">MT</tspan><tspan class="ml-cn" x="318.4" dy="1.1em">蒙大拿</tspan></text>
+          <text class="ml" x="338.6" y="322.6"><tspan class="ml-code" x="338.6" dy="-0.3em">NM</tspan><tspan class="ml-cn" x="338.6" dy="1.1em">新墨西哥</tspan></text>
+          <text class="ml" x="199.4" y="219.2"><tspan class="ml-code" x="199.4" dy="-0.3em">NV</tspan><tspan class="ml-cn" x="199.4" dy="1.1em">内华达</tspan></text>
+          <text class="ml" x="168.9" y="105.7"><tspan class="ml-code" x="168.9" dy="-0.3em">OR</tspan><tspan class="ml-cn" x="168.9" dy="1.1em">俄勒冈</tspan></text>
+          <text class="ml" x="270.2" y="216.7"><tspan class="ml-code" x="270.2" dy="-0.3em">UT</tspan><tspan class="ml-cn" x="270.2" dy="1.1em">犹他</tspan></text>
+          <text class="ml" x="175.2" y="52.0"><tspan class="ml-code" x="175.2" dy="-0.3em">WA</tspan><tspan class="ml-cn" x="175.2" dy="1.1em">华盛顿</tspan></text>
+          <text class="ml" x="335.9" y="158.9"><tspan class="ml-code" x="335.9" dy="-0.3em">WY</tspan><tspan class="ml-cn" x="335.9" dy="1.1em">怀俄明</tspan></text>
+          <text class="ml" x="529.6" y="187.4"><tspan class="ml-code" x="529.6" dy="-0.3em">IA</tspan><tspan class="ml-cn" x="529.6" dy="1.1em">艾奥瓦</tspan></text>
+          <text class="ml" x="581.7" y="231.4"><tspan class="ml-code" x="581.7" dy="-0.3em">IL</tspan><tspan class="ml-cn" x="581.7" dy="1.1em">伊利诺伊</tspan></text>
+          <text class="ml" x="626.8" y="227.9"><tspan class="ml-code" x="626.8" dy="-0.3em">IN</tspan><tspan class="ml-cn" x="626.8" dy="1.1em">印第安纳</tspan></text>
+          <text class="ml" x="459.3" y="252.3"><tspan class="ml-code" x="459.3" dy="-0.3em">KS</tspan><tspan class="ml-cn" x="459.3" dy="1.1em">堪萨斯</tspan></text>
+          <text class="ml" x="645.1" y="265.1"><tspan class="ml-code" x="645.1" dy="-0.3em">KY</tspan><tspan class="ml-cn" x="645.1" dy="1.1em">肯塔基</tspan></text>
+          <text class="ml" x="621.5" y="137.3"><tspan class="ml-code" x="621.5" dy="-0.3em">MI</tspan><tspan class="ml-cn" x="621.5" dy="1.1em">密歇根</tspan></text>
+          <text class="ml" x="527.0" y="104.9"><tspan class="ml-code" x="527.0" dy="-0.3em">MN</tspan><tspan class="ml-cn" x="527.0" dy="1.1em">明尼苏达</tspan></text>
+          <text class="ml" x="546.2" y="255.6"><tspan class="ml-code" x="546.2" dy="-0.3em">MO</tspan><tspan class="ml-cn" x="546.2" dy="1.1em">密苏里</tspan></text>
+          <text class="ml" x="437.8" y="83.5"><tspan class="ml-code" x="437.8" dy="-0.3em">ND</tspan><tspan class="ml-cn" x="437.8" dy="1.1em">北达科他</tspan></text>
+          <text class="ml" x="442.4" y="194.9"><tspan class="ml-code" x="442.4" dy="-0.3em">NE</tspan><tspan class="ml-cn" x="442.4" dy="1.1em">内布拉斯加</tspan></text>
+          <text class="ml" x="674.2" y="211.4"><tspan class="ml-code" x="674.2" dy="-0.3em">OH</tspan><tspan class="ml-cn" x="674.2" dy="1.1em">俄亥俄</tspan></text>
+          <text class="ml" x="436.1" y="144.1"><tspan class="ml-code" x="436.1" dy="-0.3em">SD</tspan><tspan class="ml-cn" x="436.1" dy="1.1em">南达科他</tspan></text>
+          <text class="ml" x="574.1" y="133.8"><tspan class="ml-code" x="574.1" dy="-0.3em">WI</tspan><tspan class="ml-cn" x="574.1" dy="1.1em">威斯康星</tspan></text>
+          <text class="ml" x="635.3" y="362.8"><tspan class="ml-code" x="635.3" dy="-0.3em">AL</tspan><tspan class="ml-cn" x="635.3" dy="1.1em">阿拉巴马</tspan></text>
+          <text class="ml" x="546.5" y="327.8"><tspan class="ml-code" x="546.5" dy="-0.3em">AR</tspan><tspan class="ml-cn" x="546.5" dy="1.1em">阿肯色</tspan></text>
+          <text class="ml" x="550.9" y="382.6"><tspan class="ml-code" x="550.9" dy="-0.3em">LA</tspan><tspan class="ml-cn" x="550.9" dy="1.1em">路易斯安那</tspan></text>
+          <text class="ml" x="584.3" y="365.9"><tspan class="ml-code" x="584.3" dy="-0.3em">MS</tspan><tspan class="ml-cn" x="584.3" dy="1.1em">密西西比</tspan></text>
+          <text class="ml" x="453.4" y="312.0"><tspan class="ml-code" x="453.4" dy="-0.3em">OK</tspan><tspan class="ml-cn" x="453.4" dy="1.1em">俄克拉何马</tspan></text>
+          <text class="ml" x="633.0" y="295.3"><tspan class="ml-code" x="633.0" dy="-0.3em">TN</tspan><tspan class="ml-cn" x="633.0" dy="1.1em">田纳西</tspan></text>
+          <text class="ml" x="414.7" y="379.2"><tspan class="ml-code" x="414.7" dy="-0.3em">TX</tspan><tspan class="ml-cn" x="414.7" dy="1.1em">得克萨斯</tspan></text>
+          <text class="ml ml-sm" x="813.5" y="165.8"><tspan class="ml-code" x="813.5" dy="-0.3em">CT</tspan><tspan class="ml-cn" x="813.5" dy="1.1em">康涅狄格</tspan></text>
+          <text class="ml ml-sm" x="760.0" y="209.2"><tspan class="ml-code" x="760.0" dy="-0.3em">DC</tspan><tspan class="ml-cn" x="760.0" dy="1.1em">哥伦比亚特区</tspan></text>
+          <text class="ml ml-sm" x="786.9" y="210.4"><tspan class="ml-code" x="786.9" dy="-0.3em">DE</tspan><tspan class="ml-cn" x="786.9" dy="1.1em">特拉华</tspan></text>
+          <text class="ml" x="699.7" y="454.1"><tspan class="ml-code" x="699.7" dy="-0.3em">FL</tspan><tspan class="ml-cn" x="699.7" dy="1.1em">佛罗里达</tspan></text>
+          <text class="ml" x="691.2" y="348.6"><tspan class="ml-code" x="691.2" dy="-0.3em">GA</tspan><tspan class="ml-cn" x="691.2" dy="1.1em">佐治亚</tspan></text>
+          <text class="ml" x="816.0" y="145.5"><tspan class="ml-code" x="816.0" dy="-0.3em">MA</tspan><tspan class="ml-cn" x="816.0" dy="1.1em">马萨诸塞</tspan></text>
+          <text class="ml ml-sm" x="771.1" y="212.1"><tspan class="ml-code" x="771.1" dy="-0.3em">MD</tspan><tspan class="ml-cn" x="771.1" dy="1.1em">马里兰</tspan></text>
+          <text class="ml" x="834.2" y="84.5"><tspan class="ml-code" x="834.2" dy="-0.3em">ME</tspan><tspan class="ml-cn" x="834.2" dy="1.1em">缅因</tspan></text>
+          <text class="ml" x="725.6" y="292.9"><tspan class="ml-code" x="725.6" dy="-0.3em">NC</tspan><tspan class="ml-cn" x="725.6" dy="1.1em">北卡罗来纳</tspan></text>
+          <text class="ml" x="815.7" y="113.9"><tspan class="ml-code" x="815.7" dy="-0.3em">NH</tspan><tspan class="ml-cn" x="815.7" dy="1.1em">新罕布什尔</tspan></text>
+          <text class="ml ml-sm" x="792.6" y="189.6"><tspan class="ml-code" x="792.6" dy="-0.3em">NJ</tspan><tspan class="ml-cn" x="792.6" dy="1.1em">新泽西</tspan></text>
+          <text class="ml" x="761.4" y="143.6"><tspan class="ml-code" x="761.4" dy="-0.3em">NY</tspan><tspan class="ml-cn" x="761.4" dy="1.1em">纽约</tspan></text>
+          <text class="ml" x="749.2" y="185.0"><tspan class="ml-code" x="749.2" dy="-0.3em">PA</tspan><tspan class="ml-cn" x="749.2" dy="1.1em">宾夕法尼亚</tspan></text>
+          <text class="ml ml-sm" x="829.2" y="159.2"><tspan class="ml-code" x="829.2" dy="-0.3em">RI</tspan><tspan class="ml-cn" x="829.2" dy="1.1em">罗得岛</tspan></text>
+          <text class="ml" x="718.5" y="332.9"><tspan class="ml-code" x="718.5" dy="-0.3em">SC</tspan><tspan class="ml-cn" x="718.5" dy="1.1em">南卡罗来纳</tspan></text>
+          <text class="ml" x="735.0" y="250.0"><tspan class="ml-code" x="735.0" dy="-0.3em">VA</tspan><tspan class="ml-cn" x="735.0" dy="1.1em">弗吉尼亚</tspan></text>
+          <text class="ml" x="797.1" y="118.4"><tspan class="ml-code" x="797.1" dy="-0.3em">VT</tspan><tspan class="ml-cn" x="797.1" dy="1.1em">佛蒙特</tspan></text>
+          <text class="ml" x="720.4" y="234.1"><tspan class="ml-code" x="720.4" dy="-0.3em">WV</tspan><tspan class="ml-cn" x="720.4" dy="1.1em">西弗吉尼亚</tspan></text>
         </g>
       </svg>
       <div class="tip" id="tip"></div>
@@ -664,7 +668,7 @@
   const tip = document.getElementById('tip');
   const mapWrap = document.getElementById('mapWrap');
   const labelByCode = {};
-  mapLabels.forEach(t => labelByCode[t.textContent] = t);
+  mapLabels.forEach(t => labelByCode[t.querySelector('.ml-code').textContent] = t);
 
   mapPaths.forEach(p => {
     const label = labelByCode[p.dataset.code];
@@ -699,7 +703,7 @@
       row.scrollIntoView({ behavior: 'smooth', block: 'center' });
     }
     mapPaths.forEach(p => p.classList.toggle('sel', p.dataset.code === code));
-    mapLabels.forEach(t => t.classList.toggle('sel', t.textContent === code));
+    mapLabels.forEach(t => t.classList.toggle('sel', t.querySelector('.ml-code').textContent === code));
   }
 
   function apply() {
@@ -714,7 +718,7 @@
       if (vis) { shown++; visible.add(r.querySelector('.code').textContent.trim()); }
     });
     mapPaths.forEach(p => p.classList.toggle('dim', !visible.has(p.dataset.code)));
-    mapLabels.forEach(t => t.classList.toggle('dim', !visible.has(t.textContent)));
+    mapLabels.forEach(t => t.classList.toggle('dim', !visible.has(t.querySelector('.ml-code').textContent)));
     empty.style.display = shown ? 'none' : 'block';
   }
 
